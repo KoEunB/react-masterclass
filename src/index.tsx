@@ -1,20 +1,19 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
-import { ThemeConsumer, ThemeProvider } from "styled-components";
-import { theme } from "./theme";
 import { QueryClient, QueryClientProvider } from "react-query";
+import App from "./App";
+import React from "react";
+import { RecoilRoot } from "recoil";
 
 const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-  <div>
-    <QueryClientProvider client={new QueryClient}>
-      <ThemeProvider theme={theme}>
+  <React.StrictMode>
+    <RecoilRoot>
+      <QueryClientProvider client={new QueryClient}>
         <App />
-      </ThemeProvider>
-    </QueryClientProvider>
-  </div>
+      </QueryClientProvider>
+    </RecoilRoot>
+  </React.StrictMode>
 );
 

@@ -5,7 +5,7 @@ import Price from "./Price";
 import Chart from "./Chart";
 import { useQuery } from "react-query";
 import { fetchCoinInfo, fetchCoinTickers } from "../api";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 
 interface RouteParams {
     coinId: string;
@@ -136,7 +136,9 @@ interface IPriceData {
     };
 }
 
-function Coin() {
+interface ICoinProps { }
+
+function Coin({}:ICoinProps) {
     const { coinId } = useParams<RouteParams>();
     const { state } = useLocation<RouteState>();
     const priceMatch = useRouteMatch("/:coinId/price");
